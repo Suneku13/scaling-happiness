@@ -23,11 +23,11 @@ init -1 python hide:
     ## This controls the title of the window, when Ren'Py is
     ## running in a window.
 
-    config.window_title = u"scaling-happiness"
+    config.window_title = u"Sinister test"
 
     # These control the name and version of the game, that are reported
     # with tracebacks and other debugging logs.
-    config.name = "scaling-happiness"
+    config.name = "Sinister test"
     config.version = "0.0"
 
     #########################################
@@ -260,7 +260,7 @@ init -1 python hide:
     ## stored. (It needs to be set early, before any other init code
     ## is run, so the persistent information can be found by the init code.)
 python early:
-    config.save_directory = "scaling-happiness-1408526208"
+    config.save_directory = "Sinister test-1404135882"
 
 init -1 python hide:
     #########################################

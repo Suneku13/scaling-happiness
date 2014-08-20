@@ -23,12 +23,12 @@ init -1 python hide:
     ## This controls the title of the window, when Ren'Py is
     ## running in a window.
 
-    config.window_title = u"scaling-happiness"
+    config.window_title = u"Scaling-happiness"
 
     # These control the name and version of the game, that are reported
     # with tracebacks and other debugging logs.
     config.name = "scaling-happiness"
-    config.version = "0.0"
+    config.version = "0.01alpha"
 
     #########################################
     # Themes
@@ -39,40 +39,48 @@ init -1 python hide:
     ## The theme function takes a number of parameters that can
     ## customize the color scheme.
 
-    theme.a_white_tulip(
-        ## Theme: A White Tulip
-        ## Scheme A White Tulip
+    theme.glow(
+        ## Theme: Glow
+        ## Color scheme: Vampire Bite
 
         ## The color of an idle widget face.
-        widget = "#c1c6d3",
+        widget = "#e97f02",
 
         ## The color of a focused widget face.
-        widget_hover = "#d7dbe5",
+        widget_hover = "#f5a240",
+
+        ## The color of the text in a widget.
+        widget_text = "#bd1550",
 
         ## The color of the text in a selected widget. (For
         ## example, the current value of a preference.)
-        widget_selected = "#c1c6d3",
+        widget_selected = "#490a3d",
 
         ## The color of a disabled widget face.
-        disabled = "#b4b4b4",
+        disabled = "#971140",
+
+        ## The color of disabled widget text.
+        disabled_text = "#bd4b40",
+
+        ## The color of informational labels.
+        label = "#f8ca00",
 
         ## The color of a frame containing widgets.
-        frame = "#9391c9",
+        frame = "#bd1550",
 
         ## The background of the main menu. This can be a color
         ## beginning with '#', or an image filename. The latter
         ## should take up the full height and width of the screen.
-        mm_root = "#ffffff",
+        mm_root = "#490a3d",
 
         ## The background of the game menu. This can be a color
         ## beginning with '#', or an image filename. The latter
         ## should take up the full height and width of the screen.
-        gm_root = "#ffffff",
+        gm_root = "#490a3d",
 
-        ## The fonts used by this theme. The default fonts may not be
-        ## suitable for non-English languages.
-        regular_font = "_theme_awt/Quicksand-Regular.ttf",
-        bold_font = "_theme_awt/Quicksand-Bold.ttf",
+        ## If this is True, the in-game window is rounded. If False,
+        ## the in-game window is square.
+        rounded_window = False,
 
         ## And we're done with the theme. The theme will customize
         ## various styles, so if we want to change them, we should
@@ -254,7 +262,7 @@ init -1 python hide:
     ## stored. (It needs to be set early, before any other init code
     ## is run, so the persistent information can be found by the init code.)
 python early:
-    config.save_directory = "scaling-happiness-1408526208"
+    config.save_directory = "Scaling-happiness"
 
 init -1 python hide:
     #########################################
@@ -270,7 +278,7 @@ init -1 python hide:
 
     ## The default text speed in characters per second. 0 is infinite.
 
-    config.default_text_cps = 0
+    config.default_text_cps = 30
 
     ## The default auto-forward time setting.
 
@@ -278,3 +286,68 @@ init -1 python hide:
 
     #########################################
     ## More customizations can go here.
+
+
+## This section contains information about how to build your project into
+## distribution files.
+init python:
+
+    ## The name that's used for directories and archive files. For example, if
+    ## this is 'mygame-1.0', the windows distribution will be in the
+    ## directory 'mygame-1.0-win', in the 'mygame-1.0-win.zip' file.
+    build.directory_name = "Scaling-happiness-alpha"
+
+    ## The name that's uses for executables - the program that users will run
+    ## to start the game. For example, if this is 'mygame', then on Windows,
+    ## users can click 'mygame.exe' to start the game.
+    build.executable_name = "Scaling-happiness"
+
+    ## If True, Ren'Py will include update information into packages. This
+    ## allows the updater to run.
+    build.include_update = True
+
+    ## File patterns:
+    ##
+    ## The following functions take file patterns. File patterns are case-
+    ## insensitive, and matched against the path relative to the base
+    ## directory, with and without a leading /. If multiple patterns match,
+    ## the first is used.
+    ##
+    ##
+    ## In a pattern:
+    ##
+    ## /
+    ##     Is the directory separator.
+    ## *
+    ##     Matches all characters, except the directory separator.
+    ## **
+    ##     Matches all characters, including the directory separator.
+    ##
+    ## For example:
+    ##
+    ## *.txt
+    ##     Matches txt files in the base directory.
+    ## game/**.ogg
+    ##     Matches ogg files in the game directory or any of its subdirectories.
+    ## **.psd
+    ##    Matches psd files anywhere in the project.
+
+    ## Classify files as None to exclude them from the built distributions.
+
+    build.classify('**~', None)
+    build.classify('**.bak', None)
+    build.classify('**/.**', None)
+    build.classify('**/#**', None)
+    build.classify('**/thumbs.db', None)
+
+    ## To archive files, classify them as 'archive'.
+
+    # build.classify('game/**.png', 'archive')
+    # build.classify('game/**.jpg', 'archive')
+
+    ## Files matching documentation patterns are duplicated in a mac app
+    ## build, so they appear in both the app and the zip file.
+
+    build.documentation('*.html')
+    build.documentation('*.txt')
+    

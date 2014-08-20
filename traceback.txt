@@ -1,0 +1,31 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While executing init code:
+  File "game/screens.rpy", line 668, in script
+    init +10 python:
+  File "game/screens.rpy", line 670, in <module>
+    renpy.image("lockImgThumb", im.Scale(ImageReference(lockImg), thumb_size_hor, thumb_size_ver))
+Exception: Expected an image, but got a general displayable.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/screens.rpy", line 668, in script
+    init +10 python:
+  File "/home/sebastian/Documents/renpy-6.17.6-sdk/renpy/ast.py", line 756, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/home/sebastian/Documents/renpy-6.17.6-sdk/renpy/python.py", line 1382, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/screens.rpy", line 670, in <module>
+    renpy.image("lockImgThumb", im.Scale(ImageReference(lockImg), thumb_size_hor, thumb_size_ver))
+  File "/home/sebastian/Documents/renpy-6.17.6-sdk/renpy/display/im.py", line 643, in __init__
+    im = image(im)
+  File "/home/sebastian/Documents/renpy-6.17.6-sdk/renpy/display/im.py", line 1536, in image
+    return image(arg.target, loose=loose, **properties)
+  File "/home/sebastian/Documents/renpy-6.17.6-sdk/renpy/display/im.py", line 1551, in image
+    raise Exception("Expected an image, but got a general displayable.")
+Exception: Expected an image, but got a general displayable.
+
+Linux-3.14.5-031405-generic-x86_64-with-debian-jessie-sid
+Ren'Py 6.17.7.521
+Animated-octo-wallhack 0.01alpha
