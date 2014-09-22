@@ -21,4 +21,6 @@ label start:
     call chapter_1
     call chapter_2
     call chapter_3
+    call chapter_4
+    call chapter_5
     return
